@@ -11,110 +11,7 @@
 </head>
 
 <body>
-
-
-    <!-- insert Modal -->
-    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <form action="insert.php" method="POST">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" class="form-control" placeholder="Title" id="title" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="ex@example.com" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for=" msg">Message</label>
-                            <textarea name="msg" name="msg" class="form-control" placeholder="Enter your message here..." id="msg" required></textarea>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="insertData" class="btn btn-primary">Save changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- #################################################################################### -->
-
-    <!-- edit Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="update.php" method="POST">
-                    <div class="modal-body">
-                        <input type="hidden" name="update_id" id="update_id">
-                        <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" class="form-control" placeholder="Title" id="title1" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="ex@example.com" id="email1" required>
-                        </div>
-                        <div class="form-group">
-                            <label for=" msg">Message</label>
-                            <input name="msg" name="msg" class="form-control" placeholder="Enter your message here..." id="message1" required></input>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="insertData" class="btn btn-primary">Save changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- #################################################################################### -->
-     <!-- delete Modal -->
-     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="delete.php" method="POST">
-                    <div class="modal-body">
-                        <input type="hidden" name="delete_id" id="delete_id">
-                        <img src="https://i.imgflip.com/4pbz9c.jpg" class="img-fluid" alt="sure?">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                        <button type="submit" name="deleteData" class="btn btn-primary">Delete</button>
-                    </div>
-                </form>
-                
-            </div>
-        </div>
-    </div>
-
-    <!-- #################################################################################### -->
+    <?php include('modals.html');?>
     <div class="container">
         <div class="jumbotron">
             <div class="card" id="heading">
@@ -176,41 +73,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('.deletebtn').on('click', function() {
-                $('#deleteModal').modal('show');
-                $tr = $(this).closest('tr');
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-                console.log(data);
-                $('#delete_id').val(data[0]);
-
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('.editbtn').on('click', function() {
-                $('#editModal').modal('show');
-                $tr = $(this).closest('tr');
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-                console.log(data);
-                $('#update_id').val(data[0]);
-                $('#title1').val(data[1]);
-                $('#email1').val(data[2]);
-                $('#message1').val(data[3]);
-                $('#created').val(data[4]);
-                $('#status').val(data[5]);
-
-
-            });
-        });
-    </script>
+    <script src="scripts.js"></script>
     
 </body>
 
