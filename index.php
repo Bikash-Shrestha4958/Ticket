@@ -61,7 +61,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Data</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -94,6 +94,32 @@
 
 
     <!-- #################################################################################### -->
+    delete data
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form action="delete.php" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="deleteData" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- #################################################################################### -->
     <div class="container">
         <div class="jumbotron">
             <div class="card" id="heading">
@@ -105,7 +131,7 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
                         Add Data
                     </button>
-                    
+
                 </div>
             </div>
             <div class="card">
@@ -139,7 +165,7 @@
                                     <td><?php echo $row['status'] ?></td>
                                     <td>
                                         <button type="button" class="btn btn-success editbtn">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <button type="button" class="btn btn-danger deletebtn">Delete</button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -173,7 +199,22 @@
 
 
             });
+            $('.deletebtn').on('click', function() {
+                $('#deleteModal').modal('show');
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+                console.log(data);
+                $('#update_id').val(data[0]);
+                $('#title1').val(data[1]);
+                $('#email1').val(data[2]);
+                $('#message1').val(data[3]);
+                $('#created').val(data[4]);
+                $('#status').val(data[5]);
+            });
         });
+        
     </script>
 </body>
 
