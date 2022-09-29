@@ -107,7 +107,7 @@
                 <form action="delete.php" method="POST">
                     <div class="modal-body">
                         <input type="hidden" name="delete_id" id="delete_id">
-                        <h3>Are you sure about that?</h3>
+                        <img src="https://i.imgflip.com/4pbz9c.jpg" class="img-fluid" alt="sure?">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
