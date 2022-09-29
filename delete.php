@@ -1,10 +1,17 @@
 <?php
 include_once('db_connect.php');
 $connect = db_connect();
-$sql = "DELETE from tickets where id = $a";
-if ($connect->query($sql)) {
-    echo ("<script> window.alert('Data deleted successfully');
-            window.location.href='index.php';</script>");
-} else {
-    echo ("Error description: " . $connect->error);
+
+if (isset($_POST['deleteData'])){
+    $a = $_POST['delete_id'];
+    $sql = "DELETE from tickets where id = '$a'";
+    if ($connect->query($sql)) {
+        echo("<SCRIPT LANGUAGE='JavaScript'>
+            window.alert('Data deleted successfully');
+            window.location.href='index.php';
+            </SCRIPT>");
+    } else {
+        echo ("Error description: " . $connect->error);
+    }
 }
+?>

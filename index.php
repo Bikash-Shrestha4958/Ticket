@@ -94,8 +94,8 @@
 
 
     <!-- #################################################################################### -->
-    delete data
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <!-- delete Modal -->
+     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -104,21 +104,21 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <form action="delete.php" method="POST">
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="title">Title</label>
-                        </div>
+                        <input type="hidden" name="delete_id" id="delete_id">
+                        <h3>Are you sure about that?</h3>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="deleteData" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="submit" name="deleteData" class="btn btn-primary">Delete</button>
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>
+
     <!-- #################################################################################### -->
     <div class="container">
         <div class="jumbotron">
@@ -183,6 +183,21 @@
 
     <script>
         $(document).ready(function() {
+            $('.deletebtn').on('click', function() {
+                $('#deleteModal').modal('show');
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+                console.log(data);
+                $('#delete_id').val(data[0]);
+
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
             $('.editbtn').on('click', function() {
                 $('#editModal').modal('show');
                 $tr = $(this).closest('tr');
@@ -199,23 +214,9 @@
 
 
             });
-            $('.deletebtn').on('click', function() {
-                $('#deleteModal').modal('show');
-                $tr = $(this).closest('tr');
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-                console.log(data);
-                $('#update_id').val(data[0]);
-                $('#title1').val(data[1]);
-                $('#email1').val(data[2]);
-                $('#message1').val(data[3]);
-                $('#created').val(data[4]);
-                $('#status').val(data[5]);
-            });
         });
-        
     </script>
+    
 </body>
 
 </html>
