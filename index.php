@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        #heading{
+            background-color:greenyellow;
+            padding: 2px 0px 2px 0px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -88,8 +95,8 @@
     <!-- #################################################################################### -->
     <div class="container">
         <div class="jumbotron">
-            <div class="card">
-                <h2>Ticketing</h2>
+            <div class="card" id="heading">
+                <h2>Ticketing System</h2>
             </div>
             <div class="card">
                 <div class="card-body">
