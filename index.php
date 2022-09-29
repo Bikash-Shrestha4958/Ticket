@@ -7,8 +7,8 @@
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
-        #heading{
-            background-color:greenyellow;
+        #heading {
+            background-color: greenyellow;
             padding: 2px 0px 2px 0px;
             text-align: center;
         }
@@ -16,7 +16,7 @@
 </head>
 
 <body>
-      
+
 
     <!-- insert Modal -->
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -28,15 +28,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <form action="insert.php" method="POST">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="title"  class="form-control" placeholder="Title" id="title" required>
+                            <input type="text" name="title" class="form-control" placeholder="Title" id="title" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email"  class="form-control" placeholder="ex@example.com" id="email" required>
+                            <input type="email" name="email" class="form-control" placeholder="ex@example.com" id="email" required>
                         </div>
                         <div class="form-group">
                             <label for=" msg">Message</label>
@@ -54,9 +55,9 @@
     </div>
 
     <!-- #################################################################################### -->
-    
-     <!-- edit Modal -->
-     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <!-- edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -65,16 +66,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="">
+                <form action="update.php" method="POST">
                     <div class="modal-body">
-                        <input type="hidden" name="update_id" value="update_id" >
+                        <input type="hidden" name="update_id" id="update_id">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="title"  class="form-control" placeholder="Title" id="title1" required>
+                            <input type="text" name="title" class="form-control" placeholder="Title" id="title1" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email"  class="form-control" placeholder="ex@example.com" id="email1" required>
+                            <input type="email" name="email" class="form-control" placeholder="ex@example.com" id="email1" required>
                         </div>
                         <div class="form-group">
                             <label for=" msg">Message</label>
@@ -104,6 +105,7 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
                         Add Data
                     </button>
+                    
                 </div>
             </div>
             <div class="card">
@@ -153,7 +155,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-    <script >
+    <script>
         $(document).ready(function() {
             $('.editbtn').on('click', function() {
                 $('#editModal').modal('show');
