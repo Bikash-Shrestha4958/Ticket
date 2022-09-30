@@ -1,9 +1,11 @@
-<?php 
+<?php
 session_start();
-if(!isset($_SESSION['username'])){
-    echo("<script> window.alert('Not authorized');</script>");
-    echo("<script>window.location.href='index.php';</script>");
-}?>
+if (($_SESSION['username']) == null) {
+    echo ("<script> window.alert('Not authorized');</script>");
+    echo ("<script>window.location.href='index.php';</script>");
+}
+error_reporting(0);
+?>
 <!doctype html>
 <html lang="en">
 
@@ -25,11 +27,17 @@ if(!isset($_SESSION['username'])){
             </div>
             <div class="card">
                 <div class="card-body">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-                        Add Data
-                    </button>
-                    
+                      <!-- Button trigger modal -->
+                    <div class="d-flex bd-highlight">
+                        <div class="p-2 flex-grow-1 bd-highlight"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+                                Add Data
+                            </button></div>
+                            
+                        <div class="p-2 bd-highlight"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#logModal">
+                                Logout
+                            </button></div>
+                    </div>
+                  
                 </div>
             </div>
             <div class="card">

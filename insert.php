@@ -1,7 +1,5 @@
 <?php
-include('session.php');
-$s = new Session();
-$s->checkSession();
+include_once('session.php');
 include_once('db_connect.php');
 $connect = db_connect();
 // Check if POST data exists (user submitted the form)

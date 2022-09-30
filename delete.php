@@ -1,7 +1,11 @@
 <?php
-include('session.php');
-$s = new Session();
-$s->checkSession();
+
+// session_start();
+// if (!isset($_SESSION['username'])) {
+//     echo ("<script> window.alert('Not authorized');</script>");
+//     echo ("<script>window.location.href='index.php';</script>");
+// }
+include_once('session.php');
 include_once('db_connect.php');
 $connect = db_connect();
 
