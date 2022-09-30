@@ -1,5 +1,7 @@
 <?php 
-include('session_check.php');
+include('session.php');
+$s = new Session();
+$s->checkSession();
 ?>
 <!-- insert Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
