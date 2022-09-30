@@ -8,7 +8,6 @@ if (isset($_POST['title'], $_POST['msg'], $_POST['email'])){
         echo  'Please complete the form!';
     }else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         echo 'Please provide a valid email address!';
-        
     } else {
         // Insert new record
     $title = $_POST['title'];
@@ -18,7 +17,7 @@ if (isset($_POST['title'], $_POST['msg'], $_POST['email'])){
     if($connect->query($sql)){
         echo("<SCRIPT LANGUAGE='JavaScript'>
         window.alert('Data inserted successfully');
-        window.location.href='index.php';
+        window.location.href='home.php';
         </SCRIPT>");
     }
     else{

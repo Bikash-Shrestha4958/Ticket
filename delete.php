@@ -8,7 +8,7 @@ if (isset($_POST['deleteData'])){
     if ($connect->query($sql)) {
         echo("<SCRIPT LANGUAGE='JavaScript'>
             window.alert('Data deleted successfully');
-            window.location.href='index.php';
+            window.location.href='home.php';
             </SCRIPT>");
     } else {
         echo ("Error description: " . $connect->error);

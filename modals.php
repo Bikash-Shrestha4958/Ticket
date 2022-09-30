@@ -1,3 +1,6 @@
+<?php 
+include('session_check.php');
+?>
 <!-- insert Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -87,7 +90,7 @@
             <form action="delete.php" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="delete_id" id="delete_id">
-                    <img src="https://i.imgflip.com/4pbz9c.jpg" class="img-fluid" alt="sure?">
+                    <div class="tenor-gif-embed" data-postid="17104016" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/john-cena-are-you-sure-are-you-sure-about-that-face-gif-17104016">John Cena Are You Sure Sticker</a>from <a href="https://tenor.com/search/john+cena-stickers">John Cena Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" name="deleteData" class="btn btn-primary">Delete</button>

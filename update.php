@@ -9,7 +9,7 @@ $msg =  $_POST['msg'];
 $sql = "UPDATE  tickets set title='$title',email ='$email',msg ='$msg' where id =$id";
 if ($connect->query($sql)) {
     echo ("<script> window.alert('Data changed successfully');
-        window.location.href='index.php';</script>");
+        window.location.href='home.php';</script>");
 } else {
     echo ("Error description: " . $connect->error);
 }
