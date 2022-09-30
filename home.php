@@ -29,7 +29,7 @@ if(!isset($_SESSION['username'])){
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
                         Add Data
                     </button>
-
+                    
                 </div>
             </div>
             <div class="card">
